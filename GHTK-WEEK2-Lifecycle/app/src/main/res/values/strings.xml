@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GHTK_Intern_Week2</string>
+    <string name="exercise_1_count_frequent_characters">Exercise 1: Count frequent characters</string>
+    <string name="exercise_2_point_inside_triangle">Exercise 2: Point inside triangle</string>
+    <string name="exercise_1">Characters</string>
+    <string name="exercise_2">Triangle</string>
+    <string name="exercise_3">Account</string>
+    <string name="accept">Point is inside the triangle</string>
+    <string name="reject">Point is not inside the triangle</string>
+</resources>

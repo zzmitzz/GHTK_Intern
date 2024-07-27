@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragment1"
+    >
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.ghtk_intern_week2.ui.screen.AccountFragment"
+        android:label="Home Page"
+        tools:layout="@layout/fragment_home">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.ghtk_intern_week2.ui.screen.Fragment1"
+        android:label="Exercise 1"
+        tools:layout="@layout/fragment1"/>
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.ghtk_intern_week2.ui.screen.Fragment2"
+        android:label="Exercise 2"
+        tools:layout="@layout/fragment2">
+        <action
+            android:id="@+id/action_fragment2_to_fragmentDraw"
+            app:destination="@id/fragmentDraw" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDraw"
+        android:name="com.example.ghtk_intern_week2.ui.screen.draw_screen.DrawTriangleFragment"
+        android:label="DrawTriangle"
+        tools:layout="@layout/fragment_triangle_drawing">
+        <action
+            android:id="@+id/action_fragmentDraw_to_fragment2"
+            app:destination="@id/fragment2" />
+    </fragment>
+</navigation>
