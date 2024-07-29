@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đơn hàng"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_margin="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/pickOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn ĐH"
+        android:textSize="16sp"
+
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="15dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/strike"
+        android:layout_marginHorizontal="5dp"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/pickOrder"
+        android:background="@color/grayDivider"
+        app:layout_constraintTop_toTopOf="@id/pickOrder"
+        app:layout_constraintBottom_toBottomOf="@id/pickOrder"/>
+    <TextView
+        android:id="@+id/find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Tìm"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintEnd_toStartOf="@id/strike"
+        app:layout_constraintTop_toTopOf="@id/pickOrder"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemPickInclude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/pickOrder">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemPicking"
+            layout="@layout/itempicklayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/grayDivider"
+        app:layout_constraintTop_toBottomOf="@id/itemPickInclude"
+        android:layout_marginTop="5dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containDropDown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/itemPickInclude">
+        <include
+            android:id="@+id/dropdown_menu"
+            layout="@layout/dropdown_list"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/rcvCont"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/containDropDown"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
