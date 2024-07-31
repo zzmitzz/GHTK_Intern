@@ -77,6 +77,7 @@ class ClockAdapter : RecyclerView.Adapter<ClockAdapter.ClockVH>() {
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ClockVH, position: Int) {
+        holder.setIsRecyclable(false)
         holder.bind(data[position])
         holder.bindTime(data[position])
     }

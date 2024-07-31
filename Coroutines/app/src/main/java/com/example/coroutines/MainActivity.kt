@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
                 it.reset()
                 removeObserver(index)
             }
-
             viewModel.listClock.clear()
             mAdapter?.data!!.clear()
             mAdapter?.notifyDataSetChanged()
