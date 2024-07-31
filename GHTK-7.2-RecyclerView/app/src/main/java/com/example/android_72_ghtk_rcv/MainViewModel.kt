@@ -3,10 +3,12 @@ package com.example.android_72_ghtk_rcv
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.android_72_ghtk_rcv.adapter.ItemAdapter
 import com.example.android_72_ghtk_rcv.model.OrderStatus
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,7 +21,7 @@ class MainViewModel : ViewModel() {
     private val list: MutableList<OrderStatus> = mutableListOf()
 
     fun initAdapter(callback : () -> Unit){
-        CoroutineScope(Dispatchers.IO).launch{
+        viewModelScope.launch{
             stimulateFetchDataFromNetwork()
             _adapter.setData(list)
             withContext(Dispatchers.Main){

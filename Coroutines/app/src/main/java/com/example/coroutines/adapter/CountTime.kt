@@ -1,5 +1,7 @@
 package com.example.coroutines.adapter
 
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -8,24 +10,38 @@ import kotlinx.coroutines.launch
 
 class CountTime() {
     private var currentTime = 0L
-    val getCurrentTime: Long
-        get() = currentTime
+    var livedataTime = MutableLiveData<Long>(currentTime)
+    var isRunning = false
+    private var dispatcher = Dispatchers.Default
+    private var job: Job = Job()
+    private var coroutineScope = CoroutineScope(dispatcher + job)
 
-    lateinit var job: Job
-    fun start(clockPosition: Int){
-        job = CoroutineScope(Dispatchers.Default).launch {
-            while(currentTime < 3600000L){
-                delay(100L)
-                currentTime += 100
+    fun getState(): Boolean{
+        return isRunning
+    }
+    fun start(){
+        if(!getState()){
+            job = coroutineScope.launch {
+                while(currentTime < 3600000L){
+                    delay(10L)
+                    currentTime += 10
+                    livedataTime.postValue(currentTime)
+                }
             }
         }
-        job.start()
+        isRunning = true
     }
     fun reset(){
-        job.cancel()
+        stop()
         currentTime = 0
+        isRunning = false
+        livedataTime.postValue(currentTime)
     }
     fun stop(){
-        job.cancel()
+        if(getState()){
+            job.cancel()
+        }
+        isRunning = false
     }
+
 }

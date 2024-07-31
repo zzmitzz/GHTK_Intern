@@ -23,24 +23,27 @@
 
         <Button
             android:id="@+id/startAll"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="12sp"
             android:text="Start" />
 
         <Button
             android:id="@+id/pauseAll"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="12sp"
             android:text="Pause" />
 
         <Button
             android:id="@+id/continueAll"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:lines="2"
+            android:textSize="12sp"
             android:text="Continue" />
 
         <Button
@@ -48,7 +51,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="12sp"
             android:text="Clear" />
+
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/play_arrow_24px"
+        android:layout_margin="15dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
