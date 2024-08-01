@@ -27,21 +27,22 @@ class ClockAdapter : RecyclerView.Adapter<ClockAdapter.ClockVH>() {
         data.addAll(list)
         notifyDataSetChanged()
     }
-//    fun itemUpdate(position: Int){
-//        notifyItemChanged(position)
-//    }
+    fun itemUpdate(position: Int, newtime: Long){
+        data[position].currentTime  = newtime
+        notifyItemChanged(position)
+    }
     inner class ClockVH(val view: View) : RecyclerView.ViewHolder(view){
-        private val observer = Observer<Long>{
-            view.findViewById<TextView>(R.id.textview).text = formatTime(it)
-        }
-        fun bindTime(countTime: CountTime){
-            countTime.livedataTime.observeForever(observer)
-        }
-        fun removeObserve(countTime: CountTime){
-            countTime.livedataTime.removeObserver(observer)
-        }
+//        private val observer = Observer<Long>{
+//            view.findViewById<TextView>(R.id.textview).text = formatTime(it)
+//        }
+//        fun bindTime(countTime: CountTime){
+//            countTime.livedataTime.observeForever(observer)
+//        }
+//        fun removeObserve(countTime: CountTime){
+//            countTime.livedataTime.removeObserver(observer)
+//        }
         fun bind(countTime: CountTime){
-
+            view.findViewById<TextView>(R.id.textview).text = formatTime(countTime.currentTime)
             view.findViewById<ImageView>(R.id.play).setOnClickListener {
                 if(countTime.getState()){
                     (it as ImageView).setImageResource(R.drawable.play_arrow_24px)
@@ -77,9 +78,9 @@ class ClockAdapter : RecyclerView.Adapter<ClockAdapter.ClockVH>() {
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: ClockVH, position: Int) {
-        holder.setIsRecyclable(false)
+//        holder.setIsRecyclable(false)
         holder.bind(data[position])
-        holder.bindTime(data[position])
+//        holder.bindTime(data[position])
     }
     private fun formatTime(a: Long): String{
         val minute = a / 1000 / 60

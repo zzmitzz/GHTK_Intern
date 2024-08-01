@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         addClock = findViewById<FloatingActionButton>(R.id.addClock)
     }
     private fun initListener(){
+        mAdapter = ClockAdapter()
+        initRecyclerView()
         addClock.setOnClickListener{
             viewModel.listClock.add(CountTime())
             mAdapter?.setData(viewModel.listClock)
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.resetAll).setOnClickListener {
             viewModel.listClock.forEachIndexed() { index, it ->
                 it.reset()
-                removeObserver(index)
+//                removeObserver(index)
             }
             viewModel.listClock.clear()
             mAdapter?.data!!.clear()
@@ -80,12 +82,17 @@ class MainActivity : AppCompatActivity() {
             layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
-
+        lifecycleScope.launch(Dispatchers.IO) {
+            while(true){
+                for(i in mAdapter!!.data.indices){
+                    mAdapter!!.itemUpdate(i, viewModel.listClock[i].currentTime)
+                }
+                Log.d("TAG", "block main")
+            }
+        }
     }
-
     override fun onStart() {
-        mAdapter = ClockAdapter()
-        initRecyclerView()
+
         super.onStart()
     }
     override fun onStop() {
@@ -98,9 +105,9 @@ class MainActivity : AppCompatActivity() {
             (it as ClockAdapter.ClockVH).checkStatus(viewModel.listClock[position])
         }
     }
-    fun removeObserver(position: Int){
-        recyclerView.findViewHolderForAdapterPosition(position)?.let {
-            (it as ClockAdapter.ClockVH).removeObserve(viewModel.listClock[position])
-        }
-    }
+//    fun removeObserver(position: Int){
+//        recyclerView.findViewHolderForAdapterPosition(position)?.let {
+//            (it as ClockAdapter.ClockVH).removeObserve(viewModel.listClock[position])
+//        }
+//    }
 }

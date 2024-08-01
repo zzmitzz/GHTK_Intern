@@ -9,7 +9,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CountTime() {
-    private var currentTime = 0L
+    var currentTime = 0L
     var livedataTime = MutableLiveData<Long>(currentTime)
     var isRunning = false
     private var dispatcher = Dispatchers.Default
