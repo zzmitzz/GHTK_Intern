@@ -102,8 +102,19 @@ class LocationActivity : BaseActivity() {
 
         val locationGps = locationImpl.getGPSLocation()
         val locationNetwork = locationImpl.getNetworkLocation()
+        var location: Location? = null
         Log.d("Location", "GPS: ${locationGps?.latitude}, Network: ${locationNetwork?.latitude}")
-        val location = locationImpl.getMoreAccurateLocation()
+        if (locationGps == null) {
+            location = locationNetwork
+        } else if (locationNetwork == null) {
+            location = locationGps
+        } else {
+            if (locationGps.accuracy > locationNetwork.accuracy) {
+                location = locationGps
+            } else {
+                location = locationNetwork
+            }
+        }
         Log.d("Location", "More Accurate: $location.latitude")
         if (location != null) {
             updateUI1(location)
