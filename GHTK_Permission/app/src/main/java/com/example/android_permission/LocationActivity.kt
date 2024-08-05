@@ -5,22 +5,27 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import com.example.android_permission.base.BaseActivity
+import com.example.android_permission.location.FusedLocationProvider
 import com.example.android_permission.location.LocationImpl
 import java.util.Locale
 
+@RequiresApi(Build.VERSION_CODES.S)
 class LocationActivity : BaseActivity() {
     private var permissionStatus: MutableLiveData<Boolean> = MutableLiveData(false)
+    private val fusedLocationProvider by lazy { FusedLocationProvider(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +96,11 @@ class LocationActivity : BaseActivity() {
         }
 
         findViewById<Button>(R.id.getButton2).setOnClickListener {
-            Toast.makeText(this, "In developing", Toast.LENGTH_SHORT).show()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                fusedLocationProvider.currentLocation?.let { it1 -> updateUI1(it1) }
+            } else {
+                Toast.makeText(this, "This features requires Android 11 or higher", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
