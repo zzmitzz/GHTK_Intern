@@ -6,3 +6,7 @@
 # Follow the instruction on Android docs
 [https://developer.android.com/develop/connectivity/bluetooth]
 
+
+
+https://github.com/user-attachments/assets/19de4c69-8050-40fa-b902-2c55b86dc925
+
