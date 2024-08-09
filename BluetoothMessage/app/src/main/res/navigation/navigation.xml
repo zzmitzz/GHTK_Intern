@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/account_fragment">
+    <fragment
+        android:id="@+id/account_fragment"
+        android:name="com.example.bluetoothmessage.ui.home.AccountFragment"
+        android:label="fragment account"
+        tools:layout="@layout/account_fragment" />
+
+    <fragment
+        android:id="@+id/chitchat_fragment"
+        android:name="com.example.bluetoothmessage.ui.chat.ui.ChatFragment"
+        android:label="fragment chat"
+        tools:layout="@layout/chatchit_fragment">
+        <action
+            android:id="@+id/action_chitchat_fragment_to_connection_fragment"
+            app:destination="@id/connection_fragment">
+        </action>
+        <argument
+            android:name="device"
+            app:argType="android.bluetooth.BluetoothDevice"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/connection_fragment"
+        android:name="com.example.bluetoothmessage.ui.chat.ui.ConnectionFragment"
+        android:label="fragment connection"
+        tools:layout="@layout/connection_fragment">
+        <action
+            android:id="@+id/action_connection_fragment_to_chitchat_fragment"
+            app:destination="@id/chitchat_fragment">
+        </action>
+        <argument
+            android:name="device"
+            app:argType="android.bluetooth.BluetoothDevice"
+            app:nullable="true" />
+    </fragment>
+</navigation>

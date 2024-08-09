@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/account_fragment"
+        android:icon="@drawable/person_24px"
+        android:title="Information"/>
+    <item
+        android:id="@+id/connection_fragment"
+        android:icon="@drawable/chat_24px"
+        android:title="Nearby Chat"/>
+
+</menu>
