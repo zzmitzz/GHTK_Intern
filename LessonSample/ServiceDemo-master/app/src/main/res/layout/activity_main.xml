@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Background Service"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/start_background_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_background_services" />
+
+    <Button
+        android:id="@+id/stop_background_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_background_services" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Foreground Service"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/start_foreground_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_foreground_services" />
+
+    <Button
+        android:id="@+id/pass_data_foreground_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pass_data_foreground_services" />
+
+    <Button
+        android:id="@+id/stop_foreground_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_foreground_services" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Bound Service"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/start_bound_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_bound_services" />
+
+    <Button
+        android:id="@+id/play_media_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Media" />
+
+    <Button
+        android:id="@+id/pause_media_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause Media" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:text="Mix Service"/>
+
+    <Button
+        android:id="@+id/start_mix_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Mix Services" />
+
+    <Button
+        android:id="@+id/play_mix_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Music" />
+
+    <Button
+        android:id="@+id/pause_mix_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause Music" />
+
+    <Button
+        android:id="@+id/stop_foreground_mix_services_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Foreground Mix Services" />
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TTS</string>
+    <string name="start_background_services">Start Background Services</string>
+    <string name="stop_background_services">Stop Background Services</string>
+    <string name="start_foreground_services">Start Foreground Services</string>
+    <string name="stop_foreground_services">Stop Foreground Services</string>
+    <string name="pass_data_foreground_services">Start And Pass Data Foreground Services</string>
+    <string name="start_bound_services">Start Bound Services</string>
+    <string name="stop_bound_services">Stop Bound Services</string>
+</resources>
