@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/GBackground0">
+
+    <!-- TextView for Song Title -->
+    <TextView
+        android:id="@+id/tvSongTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="18dp"
+        android:text="Song Title"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black" />
+
+    <!-- TextView for Artist Name -->
+    <TextView
+        android:id="@+id/tvArtistName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textSize="15dp"
+        android:maxLines="1"
+        android:text="Artist Name"
+        android:layout_marginBottom="15dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/darker_gray" />
+
+    <!-- Horizontal Layout for Control Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Previous Button -->
+        <ImageView
+            android:id="@+id/ivPrevious"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:background="@color/GTextView1"
+            android:contentDescription="Previous"
+            android:backgroundTint="@color/GTextView1"
+            android:src="@drawable/skip_previous_24px" />
+
+        <!-- Play/Pause Button -->
+        <ImageView
+            android:id="@+id/ivPlayPause"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="15dp"
+            android:background="@color/GTextView1"
+            android:contentDescription="Play/Pause"
+            android:src="@drawable/play_arrow_24px" />
+
+        <!-- Next Button -->
+        <ImageView
+            android:id="@+id/ivNext"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/GTextView1"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/GTextView1"
+            android:contentDescription="Next"
+            android:src="@drawable/skip_next_24px" />
+
+    </LinearLayout>
+
+</LinearLayout>
