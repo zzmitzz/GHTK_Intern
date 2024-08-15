@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.contentprovider"
+    namespace = "com.bunli.tts"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.contentprovider"
-        minSdk = 29
+        applicationId = "com.bunli.tts"
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -22,16 +22,13 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    buildFeatures {
-        viewBinding = true
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -45,7 +42,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.viewmodel)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
