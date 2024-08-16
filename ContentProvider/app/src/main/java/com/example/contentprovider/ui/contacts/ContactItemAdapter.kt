@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contentprovider.data.ContactSchema
+import com.example.contentprovider.data.model.ContactSchema
 import com.example.contentprovider.databinding.ContactItemRcvBinding
 
 class ContactItemAdapter : RecyclerView.Adapter<ContactItemAdapter.ViewHolder>() {
     private val data: MutableList<ContactSchema> = mutableListOf()
+    lateinit var invoke: (ContactSchema) -> Unit
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(data: List<ContactSchema>) {
@@ -25,7 +26,9 @@ class ContactItemAdapter : RecyclerView.Adapter<ContactItemAdapter.ViewHolder>()
         fun bind(item: ContactSchema) {
             binding.textViewName.text = item.name
             binding.imageViewAvatar.text = item.name[0].toString()
-            binding.imageViewAvatar.background = listOf(Color.RED, Color.BLUE, Color.GREEN).random().toDrawable()
+            binding.imageViewAvatar.background =
+                listOf(Color.RED, Color.BLUE, Color.GREEN).random().toDrawable()
+            binding.textPhone.text = "CONTACT_ID: ${item.id}"
         }
     }
 
@@ -45,6 +48,9 @@ class ContactItemAdapter : RecyclerView.Adapter<ContactItemAdapter.ViewHolder>()
         position: Int,
     ) {
         val item = data[position]
+        holder.itemView.setOnClickListener {
+            invoke(item)
+        }
         holder.bind(item)
     }
 }

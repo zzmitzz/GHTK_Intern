@@ -3,10 +3,36 @@ package com.example.contentprovider.data
 import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.provider.ContactsContract
+import android.util.Log
+import com.example.contentprovider.data.model.ContactSchema
+import com.example.contentprovider.data.model.DetailContact
 
 class MyContactDataSource(
     private val contentResolver: ContentResolver,
 ) : HeheMlemMlem {
+    override fun getDetailContact(id: String): Result<DetailContact> {
+        val cursor =
+            contentResolver.query(
+                ContactsContract.Data.CONTENT_URI,
+                null,
+                ContactsContract.Data.CONTACT_ID + " = ?",
+                arrayOf(id),
+                null,
+            )
+        cursor?.let {
+            while (it.moveToNext()) {
+                val name = it.getString(it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                val phoneNumberColumn =
+                    it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                if (phoneNumberColumn != -1) {
+                    val phoneNumber = it.getString(phoneNumberColumn)
+                }
+                Log.d("TAG", "getDetailContact:$phoneNumber")
+            }
+        }
+        return Result.Success(DetailContact())
+    }
+
     @SuppressLint("Range")
     override fun fetchContact(): Result<List<ContactSchema>> {
         val cursor =
@@ -22,9 +48,9 @@ class MyContactDataSource(
             cursor?.let {
                 while (it.moveToNext()) {
                     val id = it.getString(it.getColumnIndex(ContactsContract.Contacts._ID))
-                    val name = it.getString(it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
-                    val phone = it.getString(it.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))
-                    contacts.add(ContactSchema(id, name, phone))
+                    val name =
+                        it.getString(it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                    contacts.add(ContactSchema(id, name))
                 }
             }
             cursor?.close()

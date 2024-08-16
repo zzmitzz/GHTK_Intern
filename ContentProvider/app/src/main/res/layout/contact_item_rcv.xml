@@ -11,9 +11,9 @@
         android:id="@+id/cardViewAvatar"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        card_view:cardCornerRadius="8dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginEnd="8dp">
+        android:layout_marginEnd="8dp"
+        card_view:cardCornerRadius="8dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -28,8 +28,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/GBackground"
                 android:gravity="center"
-                android:textColor="@color/white"
                 android:text="A"
+                android:textColor="@color/white"
                 android:textSize="30sp" />
 
             <ImageView
@@ -44,17 +44,34 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- TextView for Name -->
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="Person Name"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- TextView for Name -->
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="Person Name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="(+84) 384132699"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 </LinearLayout>
