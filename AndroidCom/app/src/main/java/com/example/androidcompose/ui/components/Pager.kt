@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 fun Pager() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(vertical = 8.dp)
     ) {
         Text(
             text = "Hoạt động",

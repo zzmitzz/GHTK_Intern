@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -20,6 +21,6 @@ fun Review(like: Int, disLike: Int) {
             Text(text = "10", color = Color.Black)
             Icon(imageVector = Icons.Sharp.Face, contentDescription = null)
         }
-        Text(text = "Đánh giá", color = Color.Black)
+        Text(text = "Đánh giá", color = Color.Black, fontSize = 13.sp)
     }
 }
