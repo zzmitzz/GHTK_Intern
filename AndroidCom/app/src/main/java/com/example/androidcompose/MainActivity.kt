@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,7 +53,11 @@ data class Order(
     val description: String,
     val date: String,
 )
-
+@Composable
+private fun getScreenWidthDP() : Int {
+    val configuration = LocalConfiguration.current
+    return configuration.screenWidthDp
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
@@ -71,11 +76,13 @@ fun GreetingPreview() {
             Spacer(modifier = Modifier.padding(3.dp))
             TagInformation()
             Divider(modifier = Modifier.padding(top = 5.dp, bottom = 5.dp))
-            StatusBar()
+            StatusBar(getScreenWidthDP()/5)
             Divider(modifier = Modifier.height(8.dp))
             Pager()
             Divider()
-            Row(modifier = Modifier.fillMaxWidth().padding(end = 5.dp)) {
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 5.dp)) {
                 LazyColumn(
                     modifier =
                     Modifier

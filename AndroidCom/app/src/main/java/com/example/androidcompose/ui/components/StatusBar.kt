@@ -26,14 +26,14 @@ import com.example.androidcompose.ui.theme.AndroidComposeTheme
 
 
 @Composable
-fun StatusBar() {
+fun StatusBar(dp: Int) {
     Column(verticalArrangement = Arrangement.SpaceBetween, modifier =  Modifier.padding(start = 8.dp, end = 8.dp)) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            FireWallet(a = 1)
+            FireWallet(a = dp)
             Divider(modifier = Modifier.height(19.dp).width(2.dp).align(Alignment.CenterVertically))
-            Orders(a = 1)
+            Orders(a = dp)
             Divider(modifier = Modifier.height(19.dp).width(2.dp).align(Alignment.CenterVertically))
-            Success(a = 1)
+            Success(a = dp)
             Divider(modifier = Modifier.height(19.dp).width(2.dp).align(Alignment.CenterVertically))
             ReceiveOrderSpeed()
         }
@@ -41,11 +41,11 @@ fun StatusBar() {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Review(like = 1, disLike = 1)
             Divider(modifier = Modifier.height(19.dp).width(2.dp).align(Alignment.CenterVertically))
-            VisitedShop(a = 1)
+            VisitedShop(a = dp)
             Divider(modifier = Modifier.height(19.dp).width(2.dp).align(Alignment.CenterVertically))
-            BoughtShop(a = 1)
+            BoughtShop(a = dp)
             Divider(modifier = Modifier.height(19.dp).width(2.dp).align(Alignment.CenterVertically))
-            PeriodBuying(a = 1)
+            PeriodBuying(a = dp)
         }
     }
 }
