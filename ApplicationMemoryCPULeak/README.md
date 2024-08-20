@@ -7,7 +7,7 @@
 - Handler is not handle properly: The activit start the handler but when the activity is destroyed, the message in queue haven't complete
 yet will cause memory leak.
 - Viewbinding memory leak: the view binding is not set to null when the activity is destroy can cause memory leak.
-
+- Work is running in View Model, when the VM enter the #ViewModel_onClear stage but the work is not completed ( API call ), it can cause memory leak.
 
 # Cpu Leak
   
