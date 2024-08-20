@@ -80,7 +80,7 @@ fun GreetingPreview() {
                     modifier =
                     Modifier
                         .padding(16.dp)
-                        .weight(5f)
+                        .weight(4.4f)
                 ) {
                     items(orderList) { order ->
                         Row(
@@ -96,8 +96,8 @@ fun GreetingPreview() {
                             ) {
                                 Text(
                                     text = order.description,
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Normal,
                                     color = Color.Black,
                                 )
                             }
