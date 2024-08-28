@@ -5,8 +5,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlinx-serialization")
+    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    id("dagger.hilt.android.plugin")
 }
-
+kapt {
+    correctErrorTypes = true
+}
 android {
     packagingOptions {
         resources.excludes.apply {
@@ -36,7 +42,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -48,7 +56,9 @@ android {
         viewBinding = true
     }
 }
-
+hilt {
+    enableAggregatingTask = true
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -61,6 +71,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.retrofit)
     implementation(libs.glide)
+    implementation(libs.androidx.room.common)
     annotationProcessor(libs.glide.annotations)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -73,4 +84,14 @@ dependencies {
     implementation(libs.ktor.logging)
     implementation(libs.ktor.okHttp)
     implementation(libs.ktor.contentNegotiation)
+    // room
+    implementation(libs.room.runtime)
+    kapt(libs.sqlite.jdbc)
+    kapt(libs.androidx.room.compiler.v261)
+    implementation(libs.room.ktx)
+    // hilt
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
 }

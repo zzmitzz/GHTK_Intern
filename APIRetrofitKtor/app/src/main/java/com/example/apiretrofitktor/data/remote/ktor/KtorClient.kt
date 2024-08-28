@@ -1,7 +1,7 @@
 package com.example.apiretrofitktor.data.remote.ktor
 
-import com.example.apiretrofitktor.ServiceLocatorAPI
-import com.example.apiretrofitktor.data.model.Response
+import com.example.apiretrofitktor.data.Constant
+import com.example.apiretrofitktor.data.remote.model.Response
 import com.example.apiretrofitktor.data.remote.NetworkService
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -20,7 +20,7 @@ class KtorClient : NetworkService {
     private val client =
         HttpClient(OkHttp) {
             defaultRequest {
-                url(ServiceLocatorAPI.API_LINK)
+                url(Constant.API_LINK)
             }
 
             install(Logging) {
